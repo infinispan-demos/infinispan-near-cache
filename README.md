@@ -29,3 +29,6 @@ Exactly the same code as the Reader but activating near caching through configur
 cd reader-with-near-cache
 mvn spring-boot:run
 ```
+
+# Infinispan Spring-Boot starter
+This project is built using the [Infinispas Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
