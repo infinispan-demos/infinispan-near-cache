@@ -31,4 +31,4 @@ mvn spring-boot:run
 ```
 
 # Infinispan Spring-Boot starter
-This project is built using the [Infinispas Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
+This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
