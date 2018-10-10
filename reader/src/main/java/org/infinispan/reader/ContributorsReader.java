@@ -27,11 +27,10 @@ public class ContributorsReader implements CommandLineRunner {
       logger.info("=========================================");
       Random random = new Random();
       Instant start = Instant.now();
-      for (int i = 0; i < 10_0000; i++) {
-         int id = random.nextInt(20);
+      random.ints(10_000, 0, 20).forEach(id -> {
          Contributor contributor = contributors.get(id);
          logger.info("Contributor " + contributor);
-      }
+      });
       Instant finish = Instant.now();
       long timeElapsed = Duration.between(start, finish).toMillis();
       logger.info("Completed in " + timeElapsed);
