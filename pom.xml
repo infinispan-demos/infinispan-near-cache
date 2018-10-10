@@ -13,7 +13,7 @@
 
     <properties>
         <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
-        <infinispan.starters.version>2.0.0-SNAPSHOT</infinispan.starters.version>
+        <infinispan.starters.version>2.0.0.Final</infinispan.starters.version>
     </properties>
 
     <dependencies>
