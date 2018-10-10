@@ -1,6 +1,8 @@
 # Run infinispan server
 
+```bash 
 docker run -it -p 11222:11222 jboss/infinispan-server:9.4.0.Final
+```
 
 # Load Data
 This project is a simple spring-boot app that connects to a Remote Cache and loads a list of data.
