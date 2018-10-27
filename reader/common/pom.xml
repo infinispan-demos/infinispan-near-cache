@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>org.infinispan</groupId>
-    <artifactId>infinispan-data-loader</artifactId>
+    <artifactId>infinispan-data-reader-common</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Spring Boot Near Caching Example Writer</name>
+    <name>Spring Boot Near Caching Example Reader</name>
 
     <dependencies>
         <dependency>

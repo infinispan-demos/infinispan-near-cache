@@ -36,8 +36,4 @@ public class ContributorsReader implements CommandLineRunner {
       logger.info("Completed in " + timeElapsed);
       logger.info("=========================================");
    }
-
-   public static void main(String[] args) {
-      SpringApplication.run(ContributorsReader.class, args);
-   }
 }
