@@ -15,20 +15,35 @@ mvn spring-boot:run
 ```
 
 # Reader
-This project is a simple spring-boot app that randomly call's `get` to display a `Contributor` during a 10.000 calls loop.
 
+The reader project contains 5 submodules.
+
+- **Common**: the application code. This project is a simple spring-boot app that randomly call's `get` to display a `Contributor` during a 10.000 calls loop.
+There is no main method, this is the code the other readers will be using.
+
+- **Reader No Near Cache** Adds the main method needed, but there is no near caching
 ```bash
-cd reader
+cd reader-no-near-cache
 mvn spring-boot:run
 ```
 
-# Reader with near caching
-Exactly the same code as the Reader but activating near caching through configuration 
-
+- **Reader Near Code** Showcases the configuration you need to activate near caching by code
 ```bash
-cd reader-with-near-cache
+cd reader-near-code
 mvn spring-boot:run
 ```
+- **Reader Near Hotrod** Showcases the configuration you need to activate near caching using the hotrod-client.properties
+```bash
+cd reader-near-hotrod
+mvn spring-boot:run
+```
+
+- **Reader Near Spring** Showcases the configuration you need to activate near caching using the application.properties
+```bash
+cd reader-near-spring
+mvn spring-boot:run
+```
+
 
 # Infinispan Spring-Boot starter
 This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
