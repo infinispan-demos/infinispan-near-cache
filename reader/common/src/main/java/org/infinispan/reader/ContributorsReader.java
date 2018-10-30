@@ -9,10 +9,7 @@ import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.common.Contributor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 public class ContributorsReader implements CommandLineRunner {
 
    private Logger logger = Logger.getLogger(ContributorsReader.class.getName());
