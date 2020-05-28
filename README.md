@@ -3,6 +3,15 @@
 ```bash 
 docker run -it -p 11222:11222 jboss/infinispan-server:9.4.0.Final
 ```
+(Please note that try to run infinispan server version >9.x.x *might not* be compibled with this example. )
+
+# Build first
+Please build and install first before run,  because there are some common module dependency needs to be installed in your local maven repository.
+
+```bash
+mvn clean install
+```
+
 
 # Load Data
 This project is a simple spring-boot app that connects to a Remote Cache and loads a list of data.
@@ -10,7 +19,7 @@ The data is stored in a cache called `contributors` of type `Integer`/`Contribut
 A 'Contributor' has an int 'code' and a 'String' name.
 
 ```bash
-cd server
+cd writer
 mvn spring-boot:run
 ```
 
@@ -43,7 +52,6 @@ mvn spring-boot:run
 cd reader-near-spring
 mvn spring-boot:run
 ```
-
 
 # Infinispan Spring-Boot starter
 This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
