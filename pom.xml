@@ -12,8 +12,8 @@
     <name>Spring Boot Near Caching Demo</name>
 
     <properties>
-        <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
-        <infinispan.starters.version>2.0.0.Final</infinispan.starters.version>
+        <spring-boot.version>2.5.4</spring-boot.version>
+        <infinispan.starters.version>12.1.7.Final</infinispan.starters.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -22,6 +22,17 @@
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-spring-boot-starter-remote</artifactId>
             <version>${infinispan.starters.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring-boot.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

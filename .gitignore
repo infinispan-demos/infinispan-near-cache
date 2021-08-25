@@ -38,3 +38,12 @@ buildNumber.properties
 *.iml
 .idea
 .idea/*
+
+#eclipse
+.settings
+.project
+.classpath
+.factorypath
+
+#vscode
+.vscode
