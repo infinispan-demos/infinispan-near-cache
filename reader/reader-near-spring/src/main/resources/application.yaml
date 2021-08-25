@@ -1,8 +1,16 @@
 infinispan:
-   remote:
-     server-list: 127.0.0.1:11222
-     # Read https://blog.infinispan.org/2018/03/accessing-infinispan-inside-docker-for.html
-     client-intelligence: BASIC
-     near-cache-mode: INVALIDATED
-     near-cache-max-entries: 10
-     near-cache-cache-name-pattern: i8n-.*
+  remote:
+    server-list: 127.0.0.1:11222
+    # Allows to connect to docker container server from Mac:
+    # Read https://blog.infinispan.org/2018/03/accessing-infinispan-inside-docker-for.html
+    client_intelligence: BASIC
+    marshaller: org.infinispan.commons.marshall.JavaSerializationMarshaller
+    auth_realm: default
+    auth_username: user1
+    auth_password: user1pass
+    use_auth: true
+    sasl_mechanism: DIGEST-MD5
+    java_serial_allowlist: "org.infinispan.*"
+    near-cache-mode: INVALIDATED
+    near-cache-max-entries: 10
+    near-cache-cache-name-pattern: i8n-.*

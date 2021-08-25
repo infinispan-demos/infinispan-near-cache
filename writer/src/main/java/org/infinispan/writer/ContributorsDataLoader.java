@@ -25,7 +25,7 @@ public class ContributorsDataLoader implements CommandLineRunner {
       logger.info("            LOAD CONTRIBUTORS            ");
       logger.info("=========================================");
       RemoteCache<Integer, Contributor> contributors = cacheManager.administration()
-            .getOrCreateCache(AppData.I8N_CONTRIBUTORS_CACHE_NAME, "default");
+            .getOrCreateCache(AppData.I8N_CONTRIBUTORS_CACHE_NAME, "org.infinispan.LOCAL");
       logger.info(AppData.I8N_CONTRIBUTORS_CACHE_NAME + " cache has been get/created");
       contributors.clear();
       logger.info(AppData.I8N_CONTRIBUTORS_CACHE_NAME + " cache cleanup");

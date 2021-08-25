@@ -1,9 +1,9 @@
 # Run infinispan server
 
-```bash 
-docker run -it -p 11222:11222 jboss/infinispan-server:9.4.0.Final
+```bash
+docker run -p 11222:11222 -e USER="user1" -e PASS="user1pass" infinispan/server:12.1.7.Final-1
 ```
-(Please note that try to run infinispan server version >9.x.x *might not* be compibled with this example. )
+(Please note that try to run infinispan server version >13.x.x *might not* be compibled with this example.)
 
 # Build first
 Please build and install first before run,  because there are some common module dependency needs to be installed in your local maven repository.
@@ -12,15 +12,13 @@ Please build and install first before run,  because there are some common module
 mvn clean install
 ```
 
-
 # Load Data
 This project is a simple spring-boot app that connects to a Remote Cache and loads a list of data.
-The data is stored in a cache called `contributors` of type `Integer`/`Contributor`.
+The data is stored in a cache called `default` of type `Integer`/`Contributor`.
 A 'Contributor' has an int 'code' and a 'String' name.
 
 ```bash
-cd writer
-mvn spring-boot:run
+mvn spring-boot:run -pl writer
 ```
 
 # Reader
@@ -32,26 +30,23 @@ There is no main method, this is the code the other readers will be using.
 
 - **Reader No Near Cache** Adds the main method needed, but there is no near caching
 ```bash
-cd reader-no-near-cache
-mvn spring-boot:run
+mvn spring-boot:run -pl reader/reader-no-near-cache
 ```
 
 - **Reader Near Code** Showcases the configuration you need to activate near caching by code
 ```bash
-cd reader-near-code
-mvn spring-boot:run
+mvn spring-boot:run -pl reader/reader-near-code
 ```
+
 - **Reader Near Hotrod** Showcases the configuration you need to activate near caching using the hotrod-client.properties
 ```bash
-cd reader-near-hotrod
-mvn spring-boot:run
+mvn spring-boot:run -pl reader/reader-near-hotrod
 ```
 
 - **Reader Near Spring** Showcases the configuration you need to activate near caching using the application.properties
 ```bash
-cd reader-near-spring
-mvn spring-boot:run
+mvn spring-boot:run -pl reader/reader-near-spring
 ```
 
 # Infinispan Spring-Boot starter
-This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan-spring-boot)
+This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan/tree/main/spring/spring-boot)
