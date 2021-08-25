@@ -7,7 +7,6 @@ import java.util.logging.Logger;
 
 import org.infinispan.client.hotrod.RemoteCache;
 import org.infinispan.common.Contributor;
-import org.infinispan.spring.starter.remote.InfinispanRemoteConfigurationProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
@@ -17,9 +16,6 @@ public class ContributorsReader implements CommandLineRunner {
 
    @Autowired
    private RemoteCache<Integer, Contributor> contributors;
-
-   @Autowired
-   private InfinispanRemoteConfigurationProperties props;
 
    @Override
    public void run(String... args) throws Exception {
