@@ -1,7 +1,7 @@
 # Run infinispan server
 
 ```bash
-docker run -p 11222:11222 -e USER="user1" -e PASS="user1pass" infinispan/server:12.1.7.Final-1
+docker run -p 11222:11222 -e USER="admin" -e PASS="password" infinispan/server:12.1.7.Final
 ```
 (Please note that try to run infinispan server version >13.x.x *might not* be compibled with this example.)
 

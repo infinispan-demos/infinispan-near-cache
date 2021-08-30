@@ -6,8 +6,8 @@ infinispan:
     client_intelligence: BASIC
     marshaller: org.infinispan.commons.marshall.JavaSerializationMarshaller
     auth_realm: default
-    auth_username: user1
-    auth_password: user1pass
+    auth_username: admin
+    auth_password: password
     use_auth: true
     sasl_mechanism: DIGEST-MD5
     java_serial_allowlist: "org.infinispan.*"
