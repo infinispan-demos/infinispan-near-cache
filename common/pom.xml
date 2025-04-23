@@ -17,4 +17,10 @@
 
     <name>Spring Boot Near Caching Example Common</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.infinispan.protostream</groupId>
+            <artifactId>protostream-processor</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -1,52 +1,85 @@
-# Run infinispan server
+# Infinispan Example Project
+
+## Start Infinispan Server
+
+Run the Infinispan server using Docker or Podman:
 
 ```bash
-docker run -p 11222:11222 -e USER="admin" -e PASS="password" infinispan/server:12.1.7.Final
-```
-(Please note that try to run infinispan server version >13.x.x *might not* be compibled with this example.)
+docker run -it -p 11222:11222 -e USER="admin" -e PASS="password" quay.io/infinispan/server:latest
 
-# Build first
-Please build and install first before run,  because there are some common module dependency needs to be installed in your local maven repository.
+podman run -it -p 11222:11222 -e USER="admin" -e PASS="password" quay.io/infinispan/server:latest
+```
+
+## Build the Project First
+
+Before running anything, build and install the project. This ensures that all required modules are available in your local Maven repository:
 
 ```bash
-mvn clean install
+./mvnw clean install
 ```
 
-# Load Data
-This project is a simple spring-boot app that connects to a Remote Cache and loads a list of data.
-The data is stored in a cache called `default` of type `Integer`/`Contributor`.
-A 'Contributor' has an int 'code' and a 'String' name.
+---
+
+## Load Sample Data
+
+This project is a Spring Boot app that connects to a remote cache and loads sample data.
+
+- Cache name: `default`
+- Data type: `Integer` key / `Contributor` value
+- Each `Contributor` has:
+    - `int code`
+    - `String name`
+
+To run the writer module:
 
 ```bash
-mvn spring-boot:run -pl writer
+./mvnw spring-boot:run -pl writer
 ```
 
-# Reader
+---
 
-The reader project contains 5 submodules.
+## Reader Modules
 
-- **Common**: the application code. This project is a simple spring-boot app that randomly call's `get` to display a `Contributor` during a 10.000 calls loop.
-There is no main method, this is the code the other readers will be using.
+The reader project includes several submodules for different near caching setups.
 
-- **Reader No Near Cache** Adds the main method needed, but there is no near caching
+### 1. Common
+- Shared code used by all reader modules.
+- Randomly calls `get` in a loop of 10,000 iterations to retrieve `Contributor` objects.
+- No `main` method (not directly runnable).
+
+---
+
+### 2. Reader Without Near Cache
+
+Run this to test without near caching:
+
 ```bash
-mvn spring-boot:run -pl reader/reader-no-near-cache
+./mvnw spring-boot:run -pl reader/reader-no-near-cache
 ```
 
-- **Reader Near Code** Showcases the configuration you need to activate near caching by code
+---
+
+### 3. Reader With Near Cache (Code Configuration)
+
+Near caching is enabled directly in the code:
+
 ```bash
-mvn spring-boot:run -pl reader/reader-near-code
+./mvnw spring-boot:run -pl reader/reader-near-code
 ```
 
-- **Reader Near Hotrod** Showcases the configuration you need to activate near caching using the hotrod-client.properties
+---
+
+### 4. Reader With Near Cache (Spring Config)
+
+Near caching is configured in `application.properties`:
+
 ```bash
-mvn spring-boot:run -pl reader/reader-near-hotrod
+./mvnw spring-boot:run -pl reader/reader-near-spring
 ```
 
-- **Reader Near Spring** Showcases the configuration you need to activate near caching using the application.properties
-```bash
-mvn spring-boot:run -pl reader/reader-near-spring
-```
+---
 
-# Infinispan Spring-Boot starter
-This project is built using the [Infinispan Spring-Boot Starter](https://github.com/infinispan/infinispan/tree/main/spring/spring-boot)
+## Infinispan Spring Boot Starter
+
+This project uses the [Infinispan Spring Boot Starter](https://github.com/infinispan/infinispan/tree/main/spring).
+

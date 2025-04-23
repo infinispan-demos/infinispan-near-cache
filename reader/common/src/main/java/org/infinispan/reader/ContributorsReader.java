@@ -18,7 +18,7 @@ public class ContributorsReader implements CommandLineRunner {
    private RemoteCache<Integer, Contributor> contributors;
 
    @Override
-   public void run(String... args) throws Exception {
+   public void run(String... args) {
       logger.info("=========================================");
       logger.info("            READ CONTRIBUTORS            ");
       logger.info("=========================================");
