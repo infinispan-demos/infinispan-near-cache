@@ -5,7 +5,7 @@ import java.util.Map;
 
 public final class AppData {
 
-   public static final String I8N_CONTRIBUTORS_CACHE_NAME = "i8n-contributors";
+   public static final String I8N_CONTRIBUTORS_CACHE_NAME = "contributors";
 
    private AppData() {
 
@@ -40,6 +40,7 @@ public final class AppData {
       contributors.put(23, new Contributor(23, "Radoslav Husar"));
       contributors.put(24, new Contributor(24, "Katia Aresti"));
       contributors.put(25, new Contributor(25, "Adrian Cole"));
+      contributors.put(26, new Contributor(26, "Jose Bolina"));
 
       return contributors;
    }
