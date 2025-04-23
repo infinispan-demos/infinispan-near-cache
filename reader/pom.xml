@@ -25,7 +25,6 @@
         <module>common</module>
         <module>reader-no-near-cache</module>
         <module>reader-near-code</module>
-        <module>reader-near-hotrod</module>
         <module>reader-near-spring</module>
     </modules>
 </project>
