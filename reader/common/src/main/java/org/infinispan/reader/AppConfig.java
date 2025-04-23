@@ -25,8 +25,7 @@ public class AppConfig {
    public InfinispanRemoteCacheCustomizer configuration() {
       return b ->{
          b.addContextInitializer(new ContributorSchemaImpl());
-         b.remoteCache(AppData.I8N_CONTRIBUTORS_CACHE_NAME)
-                 .marshaller(ProtoStreamMarshaller.class);
+         b.marshaller(ProtoStreamMarshaller.class);
       };
    }
 }

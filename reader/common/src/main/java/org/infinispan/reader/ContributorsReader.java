@@ -24,7 +24,7 @@ public class ContributorsReader implements CommandLineRunner {
       logger.info("=========================================");
       Random random = new Random();
       Instant start = Instant.now();
-      random.ints(10_000, 0, 20).forEach(id -> {
+      random.ints(10_000, 0, 27).forEach(id -> {
          Contributor contributor = contributors.get(id);
          logger.info("Contributor " + contributor);
       });
